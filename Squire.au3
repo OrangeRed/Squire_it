@@ -38,27 +38,28 @@ $Cycle = 0
 While 1
 Local $StartTimer = TimerInit()
 
-if Search("./pngs/Soulstream.png") = 0 Then
-   Send("m")
-   Sleep(1000)
-EndIf
-if Search("./pngs/Soulstream.png") = 1 Then
-   Sleep(3000)
-   MouseMove(($ClientSize[0] / 2),($ClientSize[1] / 2),1)
-   Sleep(1000)
-   MouseClick("LEFT")
-   Sleep(3000)
-   MouseClick("LEFT")
-   Sleep(1000)
+;if Search("./pngs/Soulstream.png") = 0 Then
+;   Send("m")
+;   Sleep(1000)
+;EndIf
+;if Search("./pngs/Soulstream.png") = 1 Then
+;   Sleep(3000)
+;   MouseMove(($ClientSize[0] / 2),($ClientSize[1] / 2),1)
+;   Sleep(1000)
+;   MouseClick("LEFT")
+;   Sleep(3000)
+;   MouseClick("LEFT")
+;   Sleep(1000)
    ;hits continue
-   MouseMove($ClientSize[0]/2 - 400, $Clientsize[1] - 65,1)
-   Sleep(1000)
-   Skip()
-EndIf
+;   MouseMove($ClientSize[0]/2 - 400, $Clientsize[1] - 65,1)
+;   Sleep(1000)
+;   Skip()
+;EndIf
 
 Sleep(1000)
 Send("c")
 Sleep(1000)
+
 
 ;missions only
 if $Type = 2 Then
@@ -75,11 +76,12 @@ if $Type = 2 Then
 	  Send("{ESC}")
 	  Sleep(250)
 	  Sleep(1000)
-	  Enter()
 	  Counsel()
 	  Logout()
+
+	  Enter()
 	  Local $EndTimer = TimerDiff($StartTimer)
-	  Sleep(((2250000 / $NoChar) - $Endtimer))
+	  Sleep(((2420000 / $NoChar) - $Endtimer))
 
 	  ContinueLoop
    EndIf
@@ -96,13 +98,13 @@ if $Type = 2 Then
    Sleep(250)
 
    Logout()
+   Sleep(1000)
+   Enter()
    Local $EndTimer = TimerDiff($StartTimer)
    Sleep(((2250000 / $NoChar) - $Endtimer))
 
    ContinueLoop
 EndIf
-
-Enter()
 
 If $Cycle = 0 Then
    CompleteMission()
@@ -211,6 +213,9 @@ Send("{ESC}")
 Sleep(250)
 
 Logout()
+
+Sleep(1000)
+Enter()
 
 Local $EndTimer = TimerDiff($StartTimer)
 Sleep(((2250000 / $NoChar) - $Endtimer))
@@ -346,6 +351,7 @@ Func StartConversation()
    if Search("./pngs/Frame.jpg") = 0 Then
 	  Send("{ESC}")
 	  Sleep(1000)
+	  Send("s")
 	  StartConversation()
    Else
 	  MouseMove($ClientSize[0]/2, $Clientsize[1] - 100,1)
@@ -734,7 +740,7 @@ Func Enter()
    ;establish frame of reference with the character menu
    if Search("./pngs/Frame.jpg") = 0 Then
 	  Send("c")
-	  Sleep(1000)
+	  Sleep(3000)
 	  Enter()
    Else
 	  $Mouse = MouseGetPos()
@@ -799,18 +805,17 @@ Func Logout()
    ;actually logging off
    Send("{ENTER}")
    Sleep(1000)
-   Send("/trimram")
-   Sleep(1000)
-   Send("{ENTER}")
-   Sleep(1000)
    Send("/logout")
    Sleep(1000)
    Send("{ENTER}")
-   Sleep($LoadDelay)
+   While Search("./pngs/Frame.jpg") = 0
+	  Sleep($LoadDelay)
+   WEnd
+   Sleep(5000)
 
    ;switching characters
    Send("{LEFT}")
-   Sleep(1000)
+   Sleep(2000)
    Send("{ENTER}")
    Sleep(500)
    Send("{ENTER}")
@@ -819,5 +824,6 @@ Func Logout()
 	  $Cycle = $Cycle + 1
 	  $Counter = 0
    EndIf
-   Sleep($LoadDelay)
+   Sleep(5000)
+   ;Sleep($LoadDelay)
 EndFunc
