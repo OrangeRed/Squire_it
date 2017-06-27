@@ -162,6 +162,8 @@ Sleep(250)
 Send("{ESC}")
 Sleep(250)
 
+MoveTo(55378008)
+
 ;Interact with Logan
 if $Name = 1 or $Name = 2 Then
    if MoveTo(1) = 1 Then
@@ -247,6 +249,7 @@ Func Counsel()
 	  MouseMove($ClientSize[0]/2,$ClientSize[1]/2,1)
    EndIf
    Sleep(1000)
+   MoveTo(55378008)
    if $Name = 1 or $Name = 2 Then
 	  if MoveTo(1) = 1 Then
 		 If $Cycle = 0 Then
@@ -319,6 +322,11 @@ Func MoveTo($Name)
 			MouseClick("LEFT")
 			Sleep($MoveDelay)
 		 EndIf
+	  Else
+		 MouseMove($Mouse[0]-45, $Mouse[1]-60,1)
+		 Sleep(1000)
+		 MouseClick("LEFT")
+		 Sleep($MoveDelay)
 	  EndIf
 
 	  Send("{ESC}")
