@@ -13,8 +13,8 @@ $ClientSize = WinGetClientSize("[TITLE:Mabinogi]")
 
 
 Const $Squire = "./Squire.ini"
-Const $LoadDelay = IniRead($Squire, "Delay","LoadDelay","20000")
-Const $MoveDelay = IniRead($Squire, "Delay","MoveDelay","10000")
+;Const $LoadDelay = IniRead($Squire, "Delay","LoadDelay","20000")
+Const $MoveDelay = 10000
 Const $Name = IniRead($Squire, "Squires","Squire","0")
 Const $Type = IniRead($Squire, "Type","Type","3")
 Const $NoChar = IniRead($Squire, "NoChars","NoChars","8")
@@ -150,7 +150,7 @@ if $Name = 0 or $Name = 2 Then
 	  Send("`")
 	  Sleep(100)
    EndIf
-   MouseMove($ClientSize[0],$ClientSize[1],1)
+   ;MouseMove($ClientSize[0],$ClientSize[1],1)
 EndIf
 
 Send("{ESC}")
@@ -161,6 +161,7 @@ Send("{ESC}")
 Sleep(250)
 Send("{ESC}")
 Sleep(250)
+
 
 MoveTo(55378008)
 
@@ -246,7 +247,7 @@ Func Counsel()
 		 Send("`")
 		 Sleep(100)
 	  EndIf
-	  MouseMove($ClientSize[0]/2,$ClientSize[1]/2,1)
+	  ;MouseMove($ClientSize[0]/2,$ClientSize[1]/2,1)
    EndIf
    Sleep(1000)
    MoveTo(55378008)
@@ -272,7 +273,7 @@ Func Counsel()
 		 Send("`")
 		 Sleep(100)
 	  EndIf
-	  MouseMove($ClientSize[0]/2,$ClientSize[1]/2,1)
+
    EndIf
    Sleep(1000)
 EndFunc
@@ -336,7 +337,7 @@ Func MoveTo($Name)
 	  Send("{ESC}")
 	  Sleep(250)
 
-
+	  MouseMove($ClientSize[0]/2,$ClientSize[1]/2,1)
 	  Return 1
    EndIf
 EndFunc
@@ -767,7 +768,7 @@ Func Enter()
 	  MouseMove($Mouse[0]+ 325,$Mouse[1]+ 375,1)
 	  Sleep(1000)
 	  MouseClick("LEFT")
-	  Sleep($LoadDelay)
+	  ;Sleep($LoadDelay)
 
 	  Return
    EndIf
@@ -812,12 +813,13 @@ Func Logout()
 
    ;actually logging off
    Send("{ENTER}")
-   Sleep(1000)
+   Sleep(2000)
    Send("/logout")
    Sleep(1000)
    Send("{ENTER}")
+   Sleep(1000)
    While Search("./pngs/Frame.jpg") = 0
-	  Sleep($LoadDelay)
+	  Sleep(5000)
    WEnd
    Sleep(5000)
 
@@ -825,7 +827,7 @@ Func Logout()
    Send("{LEFT}")
    Sleep(2000)
    Send("{ENTER}")
-   Sleep(500)
+   Sleep(1000)
    Send("{ENTER}")
    $Counter = $Counter + 1
    If $Counter = $NoChar Then
