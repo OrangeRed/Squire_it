@@ -13,7 +13,7 @@ $ClientSize = WinGetClientSize("[TITLE:Mabinogi]")
 
 
 Const $Squire = "./Squire.ini"
-;Const $LoadDelay = IniRead($Squire, "Delay","LoadDelay","20000")
+Const $LoadDelay = IniRead($Squire, "Delay","LoadDelay","20000")
 Const $MoveDelay = 10000
 Const $Name = IniRead($Squire, "Squires","Squire","0")
 Const $Type = IniRead($Squire, "Type","Type","3")
@@ -34,7 +34,7 @@ $Mouse = MouseGetPos()
 
 
 $Counter = 0
-$Cycle = 0
+$Cycle = 1
 While 1
 Local $StartTimer = TimerInit()
 
@@ -150,7 +150,7 @@ if $Name = 0 or $Name = 2 Then
 	  Send("`")
 	  Sleep(100)
    EndIf
-   ;MouseMove($ClientSize[0],$ClientSize[1],1)
+   MouseMove($ClientSize[0],$ClientSize[1],1)
 EndIf
 
 Send("{ESC}")
@@ -161,7 +161,6 @@ Send("{ESC}")
 Sleep(250)
 Send("{ESC}")
 Sleep(250)
-
 
 MoveTo(55378008)
 
@@ -247,7 +246,7 @@ Func Counsel()
 		 Send("`")
 		 Sleep(100)
 	  EndIf
-	  ;MouseMove($ClientSize[0]/2,$ClientSize[1]/2,1)
+	  MouseMove($ClientSize[0]/2,$ClientSize[1]/2,1)
    EndIf
    Sleep(1000)
    MoveTo(55378008)
@@ -308,7 +307,6 @@ Func MoveTo($Name)
 			MouseMove($Mouse[0], $Mouse[1]-60,1)
 			Sleep(1000)
 			MouseClick("LEFT")
-			Sleep($MoveDelay)
 		 EndIf
 	  ElseIf $Name = 1 Then
 		 ;move to logan
@@ -321,13 +319,11 @@ Func MoveTo($Name)
 			MouseMove($Mouse[0]-85, $Mouse[1]-60,1)
 			Sleep(1000)
 			MouseClick("LEFT")
-			Sleep($MoveDelay)
 		 EndIf
 	  Else
 		 MouseMove($Mouse[0]-45, $Mouse[1]-60,1)
 		 Sleep(1000)
 		 MouseClick("LEFT")
-		 Sleep($MoveDelay)
 	  EndIf
 
 	  Send("{ESC}")
@@ -338,6 +334,7 @@ Func MoveTo($Name)
 	  Sleep(250)
 
 	  MouseMove($ClientSize[0]/2,$ClientSize[1]/2,1)
+	  Sleep($MoveDelay)
 	  Return 1
    EndIf
 EndFunc
@@ -834,6 +831,6 @@ Func Logout()
 	  $Cycle = $Cycle + 1
 	  $Counter = 0
    EndIf
-   Sleep(5000)
+   Sleep(10000)
    ;Sleep($LoadDelay)
 EndFunc
