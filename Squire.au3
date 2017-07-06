@@ -34,27 +34,9 @@ $Mouse = MouseGetPos()
 
 
 $Counter = 0
-$Cycle = 1
+$Cycle = 0
 While 1
 Local $StartTimer = TimerInit()
-
-;if Search("./pngs/Soulstream.png") = 0 Then
-;   Send("m")
-;   Sleep(1000)
-;EndIf
-;if Search("./pngs/Soulstream.png") = 1 Then
-;   Sleep(3000)
-;   MouseMove(($ClientSize[0] / 2),($ClientSize[1] / 2),1)
-;   Sleep(1000)
-;   MouseClick("LEFT")
-;   Sleep(3000)
-;   MouseClick("LEFT")
-;   Sleep(1000)
-   ;hits continue
-;   MouseMove($ClientSize[0]/2 - 400, $Clientsize[1] - 65,1)
-;   Sleep(1000)
-;   Skip()
-;EndIf
 
 Sleep(1000)
 Send("c")
@@ -809,6 +791,7 @@ Func Logout()
    ;Local $LoadDelay = IniRead($Squire, "Delay", "LoadDelay", "20000")
 
    ;actually logging off
+   Sleep(1000)
    Send("{ENTER}")
    Sleep(2000)
    Send("/logout")
