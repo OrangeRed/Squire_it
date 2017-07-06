@@ -1,7 +1,7 @@
 # Squire_it
 Script that runs Baltane Squires
 
-## YOU MUST USE THERE FEATURES
+## YOU MUST USE THESE FEATURES
 
 	must always start in AVALON
 	BITMAP must be enabled
@@ -17,6 +17,8 @@ This is the ideal camera position
 *There may be other positions that work better or just as well. You can pick whichever tickles your pickle.*
 
 If the script does something weird **BUT** only does it once then its not broken. However if something gets repeated multiple times (5-10+) then in all likelihood the script is confused and if it doesn't rectify itself it will terminate .... eventually.
+
+You can manually terminate the script by pressing ESC while the game is not your focus or not your active window. 
 
 ### Type = 0 (Conversation Only)
 
