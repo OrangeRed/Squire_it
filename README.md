@@ -12,7 +12,9 @@ Script that runs Baltane Squires
 ## WHAT IT DO ?
 
 This is the ideal camera position 
-![Ideal Camera Position] (https://i.imgur.com/OgAqj5Br.jpg )
+![Ideal Camera Position](https://i.imgur.com/OgAqj5Br.jpg)
+
+*There may be other positions that work better or just as well. You can pick whichever tickles your pickle.*
 
 If the script does something weird **BUT** only does it once then its not broken. However if something gets repeated multiple times (5-10+) then in all likelihood the script is confused and if it doesn't rectify itself it will terminate .... eventually.
 
